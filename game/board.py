@@ -7,3 +7,6 @@ class Board:
             [ Cell(1, '') for _ in range(15) ]
             for _ in range(15)
         ]
+
+def calculate_word_value(self):
+    pass 

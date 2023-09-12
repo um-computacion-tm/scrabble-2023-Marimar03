@@ -9,13 +9,14 @@ class Board:
         ]
 
     def calculate_word_value(self, word):
-        total_value = 0
-        for row in self.grid:
-            for cell in row:
-                if cell.letter:
-                    letter_value = cell.letter.value
-                    total_value += letter_value
-        return total_value
+        value = 0
+        for cell in word:
+            value += cell.calculate_value()
+        for cell in word:
+            if cell.multiplier_type == 'word':
+                value *= cell.multiplier
+                cell.multiplier = 1
+        return value
 
     def validate_word_inside_board(self, word, location, orientation):
         if orientation == "H":
@@ -23,8 +24,35 @@ class Board:
         else:
             return len(word) <= len(self.grid) - location[1]
         
-    def word_out_of_board(self):
-        pass
+    def word_out_of_board(self, word, location, orientation):
+        if orientation == "H":
+            if len(word) > len(self.grid) - location[0]:
+                return False 
+            for i in range(len(word)):
+                if self.grid[location[0] + i][location[1]].value != '':
+                    return False 
+        else: 
+            if len(word) > len(self.grid) - location[1]:
+                return False 
+            for i in range(len(word)):
+                if self.grid[location[0]][location[1] + i].value != '':
+                    return False
+        return True
 
     def validate_len_of_word(self, word, location, orientation):
-        pass
+        if len(word) > 7:
+            return False  
+        
+        if orientation == "H":
+            if len(word) > len(self.grid) - location[0]:
+                return False 
+            for i in range(len(word)):
+                if self.grid[location[0] + i][location[1]].value != '':
+                    return False 
+        else: 
+            if len(word) > len(self.grid) - location[1]:
+                return False 
+            for i in range(len(word)):
+                if self.grid[location[0]][location[1] + i].value != '':
+                    return False
+        return True

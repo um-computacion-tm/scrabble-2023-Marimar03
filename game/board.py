@@ -17,3 +17,14 @@ class Board:
                     total_value += letter_value
         return total_value
 
+    def validate_word_inside_board(self, word, location, orientation):
+        if orientation == "H":
+            return len(word) <= len(self.grid) - location[0]
+        else:
+            return len(word) <= len(self.grid) - location[1]
+        
+    def word_out_of_board(self):
+        pass
+
+    def validate_len_of_word(self, word, location, orientation):
+        pass

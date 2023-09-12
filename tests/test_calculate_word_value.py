@@ -109,7 +109,7 @@ class TestCalculateWordValue(unittest.TestCase):
             ),
             Cell(letter=Tiles('A', 1)),
         ]
-        for index in range (4): #2da opcion
+        for index in range (4):
             word[index].active = False
         
         value = calculate_word_value(word)

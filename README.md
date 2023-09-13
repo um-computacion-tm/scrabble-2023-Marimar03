@@ -1,1 +1,3 @@
-Scrabble is a popular game play by 2 to 4 players, It consists of forming words on the board (a matriz form by 15 columns by 15 rows) that intersect with each other, just like in crossword puzzles, using pieces marked with a letter and a number which indicates its value.
+Scrabble a board-and-tile game in which two to four players compete forming words with lettered tiles on a 225-square board; words spelled out by letters on the tiles interlock like words in a crossword puzzle. There are 100 letter tiles, each imprinted with a point value for different letters.
+
+made by Maria Acuña

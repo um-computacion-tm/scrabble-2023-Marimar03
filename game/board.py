@@ -23,6 +23,7 @@ class Board:
             return len(word) <= len(self.grid) - location[0]
         else:
             return len(word) <= len(self.grid) - location[1]
+
         
     def word_out_of_board(self, word, location, orientation):
         if orientation == "H":
@@ -38,21 +39,13 @@ class Board:
                 if self.grid[location[0]][location[1] + i].value != '':
                     return False
         return True
+    
+    def validate_word_place_board(self, word, location, orientation):
+        pass 
+
+    def is_empty(self):
+        pass
 
     def validate_len_of_word(self, word, location, orientation):
         if len(word) > 7:
             return False  
-        
-        if orientation == "H":
-            if len(word) > len(self.grid) - location[0]:
-                return False 
-            for i in range(len(word)):
-                if self.grid[location[0] + i][location[1]].value != '':
-                    return False 
-        else: 
-            if len(word) > len(self.grid) - location[1]:
-                return False 
-            for i in range(len(word)):
-                if self.grid[location[0]][location[1] + i].value != '':
-                    return False
-        return True

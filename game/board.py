@@ -1,6 +1,4 @@
 from game.cell import Cell
-from game.bagtiles import Tiles
-
 class Board:
     def __init__(self):
         self.grid = [
@@ -43,9 +41,15 @@ class Board:
     def validate_word_place_board(self, word, location, orientation):
         pass 
 
-    def is_empty(self):
-        pass
-
+    def board_is_empty(self):
+        for row in self.grid:
+            for tile in row:
+                if tile is not None:
+                    return False
+        return True
+    @staticmethod
+    
     def validate_len_of_word(self, word, location, orientation):
         if len(word) > 7:
             return False  
+    

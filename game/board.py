@@ -48,8 +48,18 @@ class Board:
                     return False
         return True
     @staticmethod
-    
-    def validate_len_of_word(self, word, location, orientation):
-        if len(word) > 7:
-            return False  
-    
+
+    def validate_len_of_word_in_board(self, word, location, orientation):
+        location_x = location[0]
+        location_y = location[1]
+        len_word = len(word)
+        if orientation == 'H':
+            if location_x + len_word > 15:
+                return False
+            else:
+                return True
+        else:
+            if location_y + len_word > 15:
+                return False
+            else:
+                return True

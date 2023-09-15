@@ -2,8 +2,8 @@ import unittest
 from game.board import Board
 from game.bagtiles import Tile
 
-class TestBoard(unittest.TestCase): #OK
-    def test_init(self):
+class TestBoard(unittest.TestCase): 
+    def test_init(self): #OK
         board = Board()
         self.assertEqual(
             len(board.grid),
@@ -62,7 +62,7 @@ class TestBoard(unittest.TestCase): #OK
         word_is_valid = board.validate_word_place_board(word, location, orientation)
         assert word_is_valid == False
 
-    def test_word_on_not_empty_board_vertical_wrong(self):
+    def test_word_on_not_empty_board_horizontal_fine(self):
         board = Board()
         board.grid[7][7].add_letter(Tile("C",1))
         board.grid[8][7].add_letter(Tile("A",1))
@@ -95,5 +95,15 @@ class TestBoard(unittest.TestCase): #OK
         board.grid[7][7].add_letter(Tile("A", 1))
         assert board.board_is_empty() == False
 
+    def test_len_of_word_in_board_x(self):
+        board= Board()
+        word="facultad"
+        location=(5,4)
+        orientation='H'
+        self.assertEqual(board.validate_len_of_word_in_board(self, word, location, orientation),True)
+
+    def test_len_of_word_in_board_y(exception):
+        pass
+        
 if __name__ == '__main__':
     unittest.main()

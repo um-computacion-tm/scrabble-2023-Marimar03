@@ -1,7 +1,7 @@
 from game.bagtiles import Tile
 
 class Cell:  
-    def __init__(self, multiplier=1, multiplier_type=''):
+    def __init__(self, multiplier = 1, multiplier_type = ''):
         self.multiplier = multiplier
         self.multiplier_type = multiplier_type
         self.letter = None
@@ -16,4 +16,5 @@ class Cell:
             return self.letter.value * self.multiplier
         else:
             return self.letter.value
+        
         

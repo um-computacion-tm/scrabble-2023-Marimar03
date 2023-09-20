@@ -19,13 +19,12 @@ class TestCalculateWordValue(unittest.TestCase):
         word = [
             Cell(letter=Tiles('C', 1)),
             Cell(letter=Tiles('A', 1)),
-            Cell(
-                letter=Tiles('S', 2),
+            Cell(letter=Tiles('S', 2),
                 multiplier=2,
-                multiplier_type='letter',
-            ),
-            Cell(letter=Tiles('A', 1)),
-        ]
+                multiplier_type='letter',),
+
+            Cell(letter=Tiles('A', 1)),]
+        
         value = calculate_word_value(word)
         self.assertEqual(value, 7)
 

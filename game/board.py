@@ -3,8 +3,7 @@ class Board:
     def __init__(self):
         self.grid = [
             [Cell(1, '') for _ in range(15)]
-            for _ in range(15)
-        ]
+            for _ in range(15)]
 
     def calculate_word_value(self, word):
         value = 0

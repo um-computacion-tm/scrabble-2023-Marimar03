@@ -1,5 +1,4 @@
 import unittest
-
 from game.bagtiles import (BagTiles, Tile)
 from unittest.mock import patch
 
@@ -167,32 +166,17 @@ class TestTiles(unittest.TestCase):
             bag.tile,
         )
     
-    
     def test_take(self): #OK
         bag = BagTiles()
         tile = bag.take(7)
-        self.assertEqual(
-            len(bag.tile),
-            93,
-        )
-        self.assertEqual(
-            len(tile),
-            7,
-        )
+        self.assertEqual( len(bag.tile), 93,)
+        self.assertEqual(len(tile), 7,)
     
     def test_put(self): #OK
         bag = BagTiles()
-        put_tile = [Tile
-        ('?', 1)]
+        put_tile = [Tile ('?', 1)]
         bag.put(put_tile)
-        self.assertEqual(
-            len(bag.tile),
-            101,
-        )
-
-class TestPlayer(unittest.TestCase):
-    def test_init(self):
-        pass
+        self.assertEqual(len(bag.tile), 101,)
 
 if __name__ == '__main__':
     unittest.main()

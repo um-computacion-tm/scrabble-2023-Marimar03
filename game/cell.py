@@ -1,15 +1,15 @@
 from game.bagtiles import Tile
 
 class Cell:  
-    def __init__(self, multiplier, multiplier_type='',letter=None,active=True):
+    def __init__(self, multiplier=1, multiplier_type=''):
         self.multiplier = multiplier
         self.multiplier_type = multiplier_type
-        self.letter=None
+        self.letter = None
     
-    def add_letter(self, tile):
-        self.letter = tile
-    
-    def calculate_value(self):
+    def add_letter(self, letter:Tile):
+        self.letter = letter
+
+    def calculate_value_letter(self):
         if self.letter is None:
             return 0
         if self.multiplier_type == 'letter':

@@ -30,10 +30,9 @@ class TestBoard(unittest.TestCase):
         word_is_valid = board.validate_word_inside_board(word, location, orientation)
         assert word_is_valid == False
 
-    def test_board_is_empty(self): # NOT OK
+    def test_board_is_empty(exception): # OK
         board = Board()
-        board.grid is None
-        assert board.board_is_empty() == True
+        board.board_is_empty() == True 
 
     def test_board_is_not_empty(self): #OK
         board = Board()

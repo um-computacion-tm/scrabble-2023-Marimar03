@@ -7,8 +7,8 @@ class Player:
             self.tile = [] 
             self.bag_tiles = bag_tiles 
 
-    def add_tiles(self, tiles):
-        self.tile.extend(tiles)
+    def add_tiles(self, Tile):
+        self.tile.extend(Tile)
    
     def show_score(self):
         return self.score
@@ -16,5 +16,5 @@ class Player:
     def get_tiles(self):
         return self.tile
     
-    def play_word(self, word):
+    def play_word(Exception):
         pass

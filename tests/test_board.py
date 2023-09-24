@@ -1,6 +1,7 @@
 import unittest
 from game.board import Board
 from game.bagtiles import Tile
+from game.cell import Cell
 
 class TestBoard(unittest.TestCase): 
     def test_init(self): #OK
@@ -13,7 +14,23 @@ class TestBoard(unittest.TestCase):
             len(board.grid[0]),
             15,
         )
+    
+    def test_calculate_word_value(self): #NOT OK
+        # Crear celdas para la palabra de prueba
+        cell1 = Cell(3, 'C')
+        cell2 = Cell(1, 'A')
+        cell3 = Cell(1, 'S')
+        cell4 = Cell(1, 'A')
+        word = [cell1, cell2, cell3, cell4]
+
+        # Crear un objeto de la clase Board
+        board = Board()
+
+        # Calcular el valor de la palabra y verificar el resultado
+        result = board.calculate_word_value(word)
+        self.assertEqual(result, 3 + 1 + 1 + 1)
         
+    
     def test_word_inside_board(self): #OK
         board = Board()
         word = "Facultad"
@@ -30,7 +47,7 @@ class TestBoard(unittest.TestCase):
         word_is_valid = board.validate_word_inside_board(word, location, orientation)
         assert word_is_valid == False
 
-    def test_board_is_empty(exception): # OK
+    def test_board_is_empty(exception): #OK
         board = Board()
         board.board_is_empty() == True 
 

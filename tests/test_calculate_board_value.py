@@ -1,43 +1,43 @@
 import unittest
-from game.board import calculate_word_value
+from game.board import Board
 from game.cell import Cell
-from game.bagtiles import Tiles
+from game.bagtiles import Tile, BagTiles
 
 
 class TestCalculateWordValue(unittest.TestCase):
-    def test_simple(self):
+    def test_word_without_multiplier(self):
         word = [
-            Cell(letter=Tiles('C', 1)),
-            Cell(letter=Tiles('A', 1)),
-            Cell(letter=Tiles('S', 2)),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('C', 1)),
+            Cell(letter=Tile('A', 1)),
+            Cell(letter=Tile('S', 2)),
+            Cell(letter=Tile('A', 1))
         ]
-        value = calculate_word_value(word)
-        self.assertEqual(value, 5)
+        word_value = Cell.calculate_value_letter(word)
+        self.assertEqual(word_value, 5)
 
     def test_with_letter_multiplier(self):
         word = [
-            Cell(letter=Tiles('C', 1)),
-            Cell(letter=Tiles('A', 1)),
-            Cell(letter=Tiles('S', 2),
+            Cell(letter=Tile('C', 1)),
+            Cell(letter=Tile('A', 1)),
+            Cell(letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='letter',),
 
-            Cell(letter=Tiles('A', 1)),]
+            Cell(letter=Tile('A', 1)),]
         
         value = calculate_word_value(word)
         self.assertEqual(value, 7)
 
     def test_with_word_multiplier(self):
         word = [
-            Cell(letter=Tiles('C', 1)),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('C', 1)),
+            Cell(letter=Tile('A', 1)),
             Cell(
-                letter=Tiles('S', 2),
+                letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='word',
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
         ]
         value = calculate_word_value(word)
         self.assertEqual(value, 10)
@@ -47,28 +47,28 @@ class TestCalculateWordValue(unittest.TestCase):
             Cell(
                 multiplier=3,
                 multiplier_type='letter',
-                letter=Tiles('C', 1)
+                letter=Tile('C', 1)
             ),
-            Cell(letter=Tiles('A', 1)),
-            Cell(letter=Tiles('S', 2),
+            Cell(letter=Tile('A', 1)),
+            Cell(letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='word',
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
         ]
         value = calculate_word_value(word)
         self.assertEqual(value, 14)
 
     def test_with_letter_multiplier_no_active(self):
         word = [
-            Cell(letter=Tiles('C', 1)),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('C', 1)),
+            Cell(letter=Tile('A', 1)),
             Cell(
-                letter=Tiles('S', 2),
+                letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='letter',
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
         ]
         for index in range(4):
             word[index].active = False
@@ -78,14 +78,14 @@ class TestCalculateWordValue(unittest.TestCase):
 
     def test_with_word_multiplier_no_active(self):
         word = [
-            Cell(letter=Tiles('C', 1)),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('C', 1)),
+            Cell(letter=Tile('A', 1)),
             Cell(
-                letter=Tiles('S', 2),
+                letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='word',
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
         ]
         for index in range(4):
             word[index].active = False
@@ -98,15 +98,15 @@ class TestCalculateWordValue(unittest.TestCase):
             Cell(
                 multiplier=3,
                 multiplier_type='letter',
-                letter=Tiles('C', 1)
+                letter=Tile('C', 1)
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
             Cell(
-                letter=Tiles('S', 2),
+                letter=Tile('S', 2),
                 multiplier=2,
                 multiplier_type='word',
             ),
-            Cell(letter=Tiles('A', 1)),
+            Cell(letter=Tile('A', 1)),
         ]
         for index in range (4):
             word[index].active = False

@@ -5,10 +5,10 @@ class Board:
             [Cell(1, '') for _ in range(15)]
             for _ in range(15)]
 
-    def calculate_word_value(self, word):
+    def calculate_word_value(self, word: list[Cell]):
         value = 0
         for cell in word:
-            value += cell.calculate_value()
+            value += cell.calculate_value_letter()
         for cell in word:
             if cell.multiplier_type == 'word':
                 value *= cell.multiplier

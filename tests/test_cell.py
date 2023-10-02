@@ -15,7 +15,7 @@ class TestCell(unittest.TestCase):
         )
         self.assertIsNone(cell.letter)
         self.assertEqual(
-            cell.calculate_value_letter(),
+            cell.calculate_value(),
             0,
         )
 
@@ -33,7 +33,7 @@ class TestCell(unittest.TestCase):
         cell.add_letter(letter=letter)
 
         self.assertEqual(
-            cell.calculate_value_letter(),6,)
+            cell.calculate_value(),6,)
 
 
 if __name__ == '__main__':

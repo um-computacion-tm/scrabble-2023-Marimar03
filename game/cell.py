@@ -9,7 +9,7 @@ class Cell:
     def add_letter(self, letter:Tile):
         self.letter = letter
 
-    def calculate_value_letter(self):
+    def calculate_value(self):
         if self.letter is None:
             return 0
         if self.multiplier_type == 'letter':

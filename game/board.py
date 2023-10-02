@@ -5,15 +5,16 @@ class Board:
             [Cell(1, '') for _ in range(15)]
             for _ in range(15)]
 
-    def calculate_word_value(self, word: list[Cell]):
+    def calculate_word_value(self, word):
         value = 0
         for cell in word:
-            value += cell.calculate_value_letter()
+            value += cell.calculate_value() #pq no toma calculate_value?
         for cell in word:
             if cell.multiplier_type == 'word':
                 value *= cell.multiplier
                 cell.multiplier = 1
         return value
+
 
     def validate_word_inside_board(self, word, location, orientation):
         if orientation == "H":
@@ -41,12 +42,8 @@ class Board:
         pass 
 
     def board_is_empty(self):
-        for row in self.grid:
-            for tile in row:
-                if tile is not None:
-                    return False
-        return True
-    @staticmethod
+        if self.grid[7][7].letter is None:
+            return True
 
     def validate_len_of_word_in_board(self, word, location, orientation):
         location_x = location[0]

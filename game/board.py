@@ -5,7 +5,7 @@ class Board:
             [Cell(1, '') for _ in range(15)]
             for _ in range(15)]
 
-    def calculate_word_value(self, word):
+    def calculate_word_value(self, word:list[Cell]):
         value = 0
         for cell in word:
             value += cell.calculate_value() #pq no toma calculate_value?

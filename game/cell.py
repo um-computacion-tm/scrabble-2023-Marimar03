@@ -1,4 +1,4 @@
-from game.bagtiles import Tile
+from game.bagtiles import Tile, BagTiles
 
 class Cell:  
     def __init__(self, multiplier = 1, multiplier_type = ''):

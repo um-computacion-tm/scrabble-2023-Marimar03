@@ -83,6 +83,10 @@ class TestBoard(unittest.TestCase):
         location = (5,10)
         orientation ='V'
         self.assertEqual(board.validate_len_of_word_in_board(self,word,location,orientation),False)
+
+    def test_show_board(self): #OK
+        board = Board()
+        board.show_board()
         
 if __name__ == '__main__':
     unittest.main()

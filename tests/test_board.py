@@ -88,5 +88,26 @@ class TestBoard(unittest.TestCase):
         board = Board()
         board.show_board()
         
+    def test_show_board_with_word(self): #OK
+        board = Board()
+        board.grid[7][7].letter = Tile('h',4)
+        board.grid[7][8].letter = Tile('o',1)
+        board.grid[7][9].letter = Tile('l',1)
+        board.grid[7][10].letter = Tile('a',1)
+
+    def test_show_board_with_words(self):
+        "1ra palabra"
+        board = Board()
+        board.grid[7][7].letter = Tile('h',4)
+        board.grid[7][8].letter = Tile('o',1)
+        board.grid[7][9].letter = Tile('l',1)
+        board.grid[7][10].letter = Tile('a',1)
+        "2da palabra"
+        board = Board()
+        board.grid[7][7].letter = Tile('h',4)
+        board.grid[8][7].letter = Tile('o',1)
+        board.grid[9][7].letter = Tile('l',1)
+        board.grid[10][7].letter = Tile('a',1)
+
 if __name__ == '__main__':
     unittest.main()

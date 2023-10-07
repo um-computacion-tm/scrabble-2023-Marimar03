@@ -95,7 +95,7 @@ class TestBoard(unittest.TestCase):
         board.grid[7][9].letter = Tile('l',1)
         board.grid[7][10].letter = Tile('a',1)
 
-    def test_show_board_with_words(self):
+    def test_show_board_with_words(self): #OK
         "1ra palabra"
         board = Board()
         board.grid[7][7].letter = Tile('h',4)

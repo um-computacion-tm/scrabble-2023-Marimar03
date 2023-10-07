@@ -8,7 +8,7 @@ class Board:
     def calculate_word_value(self, word:list[Cell]):
         value = 0
         for cell in word:
-            value += cell.calculate_value() #pq no toma calculate_value?
+            value += cell.calculate_value()
         for cell in word:
             if cell.multiplier_type == 'word':
                 value *= cell.multiplier
